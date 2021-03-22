@@ -41,11 +41,11 @@ const dishes = [
 
 const dishObj = dishes.map((dish, i) => ({id: i, title: dish}));
 
-function App(props) {
+function App({ authorized }) {
   return (
     <div className="App">
       <Header name="Deepu"/>
-      {props.authorized ?  <Main adjective="amazing" dishes={dishObj}/> : <p>Access Denied</p>}
+      {authorized ?  <Main adjective="amazing" dishes={dishObj}/> : <p>Access Denied</p>}
       <Footer year={new Date().getFullYear()}/>
     </div>
   );
