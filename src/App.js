@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import restaurant from './restaurant.jpg'
 
@@ -46,6 +46,19 @@ function App() {
   const [pageType, setPageType] = useState("restaurant")
   const [emotion, setEmotion] = useState("happy")
   const [authorized, setAuthorized] = useState(false)
+
+  useEffect(() => {
+    console.log('Selected page is ' + pageType)
+  },[pageType])
+
+  useEffect(() => {
+    console.log('Current emotion is ' + emotion)
+  },[emotion])
+
+  useEffect(() => {
+    console.log('Authorized: ' + authorized)
+  },[authorized])
+  
   return (
     <div className="App">
       {!!pageType ? <p>Selected page is {pageType}</p> : <p>Select page</p>}
